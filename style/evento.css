@@ -1,0 +1,105 @@
+a i {
+    padding: 10px;
+    margin-left: 5px;
+    background-color: orange;
+    border-radius: 20px;
+    color: black;
+}
+
+a i:hover{
+    cursor: pointer;
+    background-color: black;
+    color: orange;
+}
+
+.fa-pen-to-square::after{
+    content: 'INSCREVER-SE';
+    margin-left: 10px;
+}
+
+.inscrever{
+    padding: 5px;
+    border-radius: 20px;
+    background-color: orange;
+    text-decoration: none;
+    color: black;
+}
+
+.inscrever:hover{
+    cursor: pointer;
+    background-color: black;
+    color: orange;
+}
+
+.concluirEvento{
+    padding: 5px;
+    border-radius: 20px;
+    background-color: orange;
+    text-decoration: none;
+    color: black;
+}
+
+.concluirEvento:hover{
+    cursor: pointer;
+    background-color: black;
+    color: orange;
+}
+
+.alunos{
+    padding: 5px;
+    border-radius: 20px;
+    background-color: orange;
+    text-decoration: none;
+    color: black;
+}
+
+.alunos:hover{
+    cursor: pointer;
+    background-color: black;
+    color: orange;
+}
+
+.consultaCertificado{
+    padding: 5px;
+    border-radius: 20px;
+    background-color: orange;
+    text-decoration: none;
+    color: black;
+}
+
+.consultaCertificado:hover{
+    cursor: pointer;
+    background-color: black;
+    color: orange;
+}
+
+.consultaAlunoEvento{
+    padding: 5px;
+    border-radius: 20px;
+    background-color: orange;
+    text-decoration: none;
+    color: black;
+}
+
+.consultaAlunoEvento:hover{
+    cursor: pointer;
+    background-color: black;
+    color: orange;
+}
+
+.concluirEvento, .alunos, .consultaAlunoEvento{
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.form-funcionario{
+    height: auto;
+    width: 600px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
