@@ -22,3 +22,26 @@ function data_valida($date){
 function horario_valido($horaInicio, $horaFim){
     return $horaInicio < $horaFim;
 }
+
+/**
+ * Para praticidade, esta função realiza as principais conversões de campos para a parte do Front.
+ * Assim, evita a repetição de boa parte do código.
+ * 
+ * Sumário:
+ *  0 -> Ajusta campos datas para o padrão dia/mes/Ano.
+ *  1 -> Ajusta campos tempo para apresentar somente Hora:Minuto.
+ */
+function ajusta_campo($campo, $opcao){
+    $retorno = '';
+
+    switch($opcao){
+        case 0:
+            $retorno = date('d/m/Y', strtotime($campo));
+            break;
+        case 1:
+            $retorno = date('H:i', strtotime($campo));
+            break;
+    }
+
+    return $retorno;
+}

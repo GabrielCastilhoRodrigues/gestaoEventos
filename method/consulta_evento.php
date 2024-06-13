@@ -37,6 +37,27 @@ function consulta_evento_nao_registrado(){
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function consulta_evento($id){
+    $sql = "SELECT
+                descricao,
+                dataevento,
+                localevento,
+                horainicio,
+                horafim
+            FROM
+                evento
+            WHERE
+                eventoid = :eventoid
+                and concluido = FALSE
+            ";
+    
+    $query = $GLOBALS['conn']->prepare($sql);
+    $query->bindParam(':eventoid', $id);
+    $query->execute();
+
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
+
 function consulta_evento_registrado(){
     $sql = "SELECT
                 eventoid,

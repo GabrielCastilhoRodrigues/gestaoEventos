@@ -8,6 +8,7 @@
 
     if(!esta_logado()){
         alert('Necessário estar logado para realizar a operação', $t_main);
+        exit;
     }
 
     $sql = 'UPDATE

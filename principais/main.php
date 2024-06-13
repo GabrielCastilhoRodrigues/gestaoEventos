@@ -2,6 +2,7 @@
     require_once('../backend/conn.php');
     require_once('../backend/verifica_login.php');
     require_once('../components/head.php');
+    require_once('../method/function.php');
 ?>
 
 <!DOCTYPE html>
@@ -38,25 +39,28 @@
                     ?>
                         <tr>
                             <td><?php echo $evento['descricao'] ?></td>
-                            <td><?php echo date('d/m/Y', strtotime($evento['dataEvento'])) ?></td>
+                            <td><?php echo ajusta_campo($evento['dataEvento'], 0) ?></td>
                             <td><?php echo $evento['localEvento'] ?></td>
-                            <td><?php echo date('H:i', strtotime($evento['horaInicio'])) ?></td>
+                            <td><?php echo ajusta_campo($evento['horaInicio'], 1) ?></td>
                             <td>
                                 <?php 
                                     echo ($evento['concluido']) ? 'SIM':  'NÃO'
                                 ?>
                             </td>
                             <td>
-                                <a class="inscrever" href="../cadastro/participa_evento.php?eventoid=<?php echo $evento['eventoid'] ?>">
-                                    PARTICIPAR
-                                </a>
-
                                 <?php                                    
                                     if ($evento['concluido']){
                                 ?>
                                         <a class="consultaAlunoEvento" href="../consulta/alunos_registrados.php?eventoid=<?php echo $evento['eventoid'] ?>">
                                             Consultar Certificado
                                         </a>
+                                <?php
+                                    }
+                                    else {
+                                ?>
+                                    <a class="inscrever" href="../cadastro/participa_evento.php?eventoid=<?php echo $evento['eventoid'] ?>">
+                                        PARTICIPAR
+                                    </a>
                                 <?php
                                     }
                                 ?>

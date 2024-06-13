@@ -21,6 +21,9 @@
                             <a class="dropdown-item" href="../cadastro/funcionario.php">Funcionário</a>
                         </li>
                         <li>
+                            <a class="dropdown-item" href="../cadastro/cargo.php">Cargo</a>
+                        </li>
+                        <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>

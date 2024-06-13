@@ -19,14 +19,17 @@
 
     $sql = 
             "SELECT 
-                nome_login,
-                cargoid,
-                funcionarioid
+                funcionario.nome_login,
+                funcionario.funcionarioid,
+                cargo.nivel
             FROM 
                 funcionario
+            JOIN
+                cargo
+                ON cargo.cargoid = funcionario.cargoid
             WHERE
-                nome_login = :login
-                and senha = :senha";
+                funcionario.nome_login = :login
+                and funcionario.senha = :senha";
     $query = $conn->prepare($sql);
     $query->bindParam(':login', $login);
     $query->bindParam(':senha', $senha);
@@ -35,11 +38,11 @@
     if ($query->rowCount() > 0) {
         $usuario = $query->fetch(PDO::FETCH_ASSOC);
         $_SESSION['user'] = $usuario['nome_login'];
-        $_SESSION['cargo'] = $usuario['cargoid'];
         $_SESSION['id'] = $usuario['funcionarioid'];
+        $_SESSION['nivel'] = $usuario['nivel'];
+
         alert('Acesso realizado com sucesso', $t_main);
     }
     else{
-        echo $query;
-        //alert('Usuário não encontrado!', $t_login);
+        alert('Usuário não encontrado!', $t_login);
     }

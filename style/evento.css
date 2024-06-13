@@ -12,11 +12,6 @@ a i:hover{
     color: orange;
 }
 
-.fa-pen-to-square::after{
-    content: 'INSCREVER-SE';
-    margin-left: 10px;
-}
-
 .inscrever{
     padding: 5px;
     border-radius: 20px;

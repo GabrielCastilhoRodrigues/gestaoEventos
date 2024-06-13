@@ -48,12 +48,22 @@ if (!$logado) {
                 ?>
                     <tr>
                         <td><?php echo $evento['descricao'] ?></td>
-                        <td><?php echo $evento['dataEvento'] ?></td>
+                        <td><?php echo ajusta_campo($evento['dataEvento'], 0) ?></td>
                         <td><?php echo $evento['localEvento'] ?></td>
                         <td>
                             <a href="../method/registra_evento.php?eventoid=<?php echo $evento['eventoid'] ?>">
-                            <i class="fa-regular fa-square-check fa-shake confirma"></i>
+                                <i class="fa-regular fa-square-check fa-shake confirma"></i>
                             </a>
+
+                            <?php
+                                if ($_SESSION['nivel'] == 1){
+                            ?>
+                                <a href="../method/remove_evento.php?eventoid=<?php echo $evento['eventoid'] ?>" onclick="return confirm('Tem certeza que deseja excluir este evento?');">
+                                    <i class="fa-regular fa-trash-can confirma"></i>
+                                </a>
+                            <?php
+                                }
+                            ?>
                         </td>
                     </tr>
                 <?php
@@ -84,7 +94,7 @@ if (!$logado) {
                 ?>
                     <tr>
                         <td><?php echo $evento['descricao'] ?></td>
-                        <td><?php echo $evento['dataEvento'] ?></td>
+                        <td><?php echo ajusta_campo($evento['dataEvento'], 0) ?></td>
                         <td><?php echo $evento['localEvento'] ?></td>
                         <td><?php echo $evento['codigoEvento'] ?></td>
                         <td>
@@ -93,6 +103,17 @@ if (!$logado) {
                                 if (!$evento['concluido']){
                             ?>
                                 <a href="../method/conclui_evento.php?eventoid=<?php echo $evento['eventoid'] ?>" class="concluirEvento">Concluir evento</a>
+                                <a href="../edit/evento.php?eventoid=<?php echo $evento['eventoid'] ?>">
+                                    <i class="fa-regular fa-pen-to-square"></i>
+                                </a>
+                            <?php
+                                }
+                                
+                                if ($_SESSION['nivel'] == 1){
+                            ?>
+                                <a href="../method/remove_evento.php?eventoid=<?php echo $evento['eventoid'] ?>" onclick="return confirm('Tem certeza que deseja excluir este evento?');">
+                                    <i class="fa-regular fa-trash-can confirma"></i>
+                                </a>
                             <?php
                                 }
                             ?>

@@ -2,6 +2,13 @@
     require_once("function.php");
     require_once("rotas.php");
 
+    require_once("../backend/verifica_login.php");
+
+    if (!esta_logado()){
+        alert('Necessário estar logado para acessar esta página', $t_main);
+        exit;
+    }
+
     $nome = $_POST["nome"];
     $cpf = $_POST["cpf"];
     $cargo = $_POST["cargo"];

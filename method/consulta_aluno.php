@@ -4,13 +4,6 @@
     require_once('rotas.php');
     require_once('../backend/conn.php');
     require_once('../method/consulta_evento.php');
-
-    $logado = esta_logado();
-
-    if(!$logado){
-        alert('Necessário estar logado para acessar esta página', $t_main);
-    }
-
     function consulta_aluno_evento($eventoid){
         $sql = "SELECT
                     aluno.nome,

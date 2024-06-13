@@ -8,6 +8,7 @@
 
     if (!$logado){
         alert('Necessário estar logado para acessar este cadastro', $t_main);
+        exit;
     }
 
     $descricao = $_POST['descricao'];
