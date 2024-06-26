@@ -41,6 +41,9 @@ function ajusta_campo($campo, $opcao){
         case 1:
             $retorno = date('H:i', strtotime($campo));
             break;
+        case 2:
+            $retorno = date('d/m/Y H:i', strtotime($campo));
+            break;
     }
 
     return $retorno;

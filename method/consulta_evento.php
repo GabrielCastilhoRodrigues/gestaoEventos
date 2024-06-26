@@ -29,8 +29,9 @@ function consulta_evento_nao_registrado(){
             FROM
                 evento
             WHERE
-                codigoevento is NULL
-                or codigoevento = ''
+                (codigoevento is NULL
+                or codigoevento = '')
+                and encerrado = FALSE
             ";
     
     $query = $GLOBALS['conn']->query($sql);
@@ -70,6 +71,7 @@ function consulta_evento_registrado(){
                 evento
             WHERE
                 codigoevento is not NULL
+                AND encerrado = FALSE
             ";
     
     $query = $GLOBALS['conn']->query($sql);
@@ -91,4 +93,22 @@ function confere_evento_existente($codigoEvento){
     $retorno = $query->fetchAll();
 
     return $retorno;
+}
+
+function consulta_evento_encerrado(){
+    $sql = "SELECT
+                eventoid,
+                descricao,
+                localEvento,
+                dataEvento,
+                codigoEvento,
+                dataEncerrado
+            FROM
+                evento
+            WHERE
+                encerrado = TRUE
+            ";
+    
+    $query = $GLOBALS['conn']->query($sql);
+    return $query->fetchAll(PDO::FETCH_ASSOC);
 }

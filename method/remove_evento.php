@@ -16,18 +16,22 @@
     }
 
     $eventoid = $_GET['eventoid'];
-
-    $sql = 'DELETE FROM
+    $sql = "UPDATE
                 evento
+            SET
+                encerrado = TRUE,
+                dataencerrado = now()
             WHERE
-                eventoid = :eventoid';
-    $query = $conn->prepare($sql);
-    $query->bindParam('eventoid', $eventoid);
-    
+                eventoid = :id
+            ";
 
-    if($query->execute()){
-        alert('Evento removido com sucesso!', $t_registra_evento);
+    $query = $conn->prepare($sql);
+    $query->bindParam('id', $eventoid);
+    $query->execute();    
+
+    if($query->rowCount() > 0){
+        alert('Evento encerrado com sucesso!', $t_registra_evento);
     }
     else {
-        alert('Não foi possível realizar a exclusão do evento', $t_registra_evento);
-    }
+        alert('Não foi possível realizar o encerramento do evento', $t_registra_evento);
+    }    

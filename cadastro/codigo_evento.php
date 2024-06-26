@@ -14,7 +14,7 @@ if (!$logado) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <?php
@@ -58,8 +58,8 @@ if (!$logado) {
                             <?php
                                 if ($_SESSION['nivel'] == 1){
                             ?>
-                                <a href="../method/remove_evento.php?eventoid=<?php echo $evento['eventoid'] ?>" onclick="return confirm('Tem certeza que deseja excluir este evento?');">
-                                    <i class="fa-regular fa-trash-can confirma"></i>
+                                <a href="../method/remove_evento.php?eventoid=<?php echo $evento['eventoid'] ?>" onclick="return confirm('Tem certeza que deseja encerrar este evento?');">
+                                    <i class="fa-regular fa-circle-stop"></i>
                                 </a>
                             <?php
                                 }
@@ -111,8 +111,8 @@ if (!$logado) {
                                 
                                 if ($_SESSION['nivel'] == 1){
                             ?>
-                                <a href="../method/remove_evento.php?eventoid=<?php echo $evento['eventoid'] ?>" onclick="return confirm('Tem certeza que deseja excluir este evento?');">
-                                    <i class="fa-regular fa-trash-can confirma"></i>
+                                <a href="../method/remove_evento.php?eventoid=<?php echo $evento['eventoid'] ?>" onclick="return confirm('Tem certeza que deseja encerrar este evento?');">
+                                    <i class="fa-regular fa-circle-stop"></i>
                                 </a>
                             <?php
                                 }

@@ -34,6 +34,19 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-light dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Consulta
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li>
+                            <a class="dropdown-item" href="../consulta/cargo.php">Consulta Cargo</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="../consulta/eventos_encerrados.php">Eventos Encerrados</a>
+                        </li>
+                    </ul>
+                </li>
                 <?php
                    if ($logado){
                 ?>
